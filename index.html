@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>What Next</title>
+        <style>
+            *{
+                font-size: 30px;
+                color: antiquewhite;
+            }
+            body{
+                background: url("bg.jpg") no-repeat center center/cover; 
+                
+            }
+            h1{
+                    color: burlywood;
+                }
+            h2{
+                color: aquamarine;
+            }    
+        </style>
+        <script>
+        function show()
+        {
+            event.preventDefault();
+                let name = document.getElementById("name");
+                let Job = document.getElementById("JOB");
+                let MS = document.getElementById("MS");
+                let MBA = document.getElementById("MBA");
+                let ans = document.getElementById("ans");
+
+                if (name.value =="")
+                {
+                    alert("Name is empty");
+                    ans.innerHTML="";
+                    name.focus();
+                    return;
+                }
+                else if(name.value.trim()=="")
+                {
+                    alert("Name can not be blank");
+                    ans.innerHTML="";
+                    name.value="";
+                    name.focus();
+                    return;
+                }
+                else if(!name.value.match(/^[A-Za-z]+$/))
+                {
+                    alert("Name shod contain only alphabets");
+                    ans.innerHTML="";
+                    name.value="";
+                    name.focus();
+                    return;
+                }
+                let choice = "";
+                if(JOB.checked)   
+                {
+                    choice = "JOB";
+                }             
+                else if(MS.checked)
+                {
+                    choice = "MS";
+                }
+                else{
+                    choice = "MBA";
+                }
+                let msg = "name = "+ name.value     +     "choice = " + choice;
+                ans.innerHTML=msg
+            
+        }        
+        </script>
+    </head>
+    <body>
+        <center>
+            <h1>What Next</h1>
+            <form onsubmit ="show()">
+                <input  style="color: #000;" type = "text" placeholder="Enetr Yur Name" id="name"/>
+                <br><br>
+                <input type = "radio" name ="c" id="JOB"checked= true/>JOB
+                <input type = "radio" name ="c" id="MS"checked= true/>MS
+                <input type = "radio" name ="c" id="MBA"checked= true/>MBA
+                <br><br>
+                <input  style="color: #000;"type = "submit"/>
+            </form>
+            <h2 id = "ans"></h2>
+        </center>
+    </body>
+</html>
